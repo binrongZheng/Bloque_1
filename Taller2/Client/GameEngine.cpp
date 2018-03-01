@@ -39,13 +39,41 @@ void GameEngine::start() {
 
 	sf::Font font;
 
+	centerCard = pocker.getSprite(rand() % 39);
+	centerCard.setPosition(380,280);
+
 	playerPocker.push_back(pocker.getSprite(10));playerPocker.push_back(pocker.getSprite(1));playerPocker.push_back(pocker.getSprite(20));
 	playerPocker.push_back(pocker.getSprite(30));playerPocker.push_back(pocker.getSprite(39));
 	
-	pockerPos.push_back({ 280,450 }); pockerPos.push_back({ 330,450 }); pockerPos.push_back({ 380,450 }); pockerPos.push_back({ 430,450 }); pockerPos.push_back({ 480,450 });
+	playerPockerPos.push_back({ 280,450 }); playerPockerPos.push_back({ 330,450 }); playerPockerPos.push_back({ 380,450 }); playerPockerPos.push_back({ 430,450 }); playerPockerPos.push_back({ 480,450 });
 
 	for (int i = 0; i < 5; i++) {
-		playerPocker[i].setPosition(pockerPos[i].x,pockerPos[i].y);
+		playerPocker[i].setPosition(playerPockerPos[i].x,playerPockerPos[i].y);
+	}
+
+	otherPlayerPockerPos.push_back({ 280,100 });
+	otherPlayerPockerPos.push_back({ 330,100 });
+	otherPlayerPockerPos.push_back({ 380,100 });
+	otherPlayerPockerPos.push_back({ 430,100 });
+	otherPlayerPockerPos.push_back({ 480,100 });
+
+	otherPlayerPockerPos.push_back({ 700,180 }); 
+	otherPlayerPockerPos.push_back({ 700,230 }); 
+	otherPlayerPockerPos.push_back({ 700,280 }); 
+	otherPlayerPockerPos.push_back({ 700,330 }); 
+	otherPlayerPockerPos.push_back({ 700,380 });
+	
+	otherPlayerPockerPos.push_back({ 170,180 });
+	otherPlayerPockerPos.push_back({ 170,230 });
+	otherPlayerPockerPos.push_back({ 170,280 });
+	otherPlayerPockerPos.push_back({ 170,330 });
+	otherPlayerPockerPos.push_back({ 170,380 });
+
+	for (int i = 0; i < 15; i++) {
+		otherPlayerPocker.push_back(pocker.getSprite(40));
+		otherPlayerPocker[i].setPosition(otherPlayerPockerPos[i].x, otherPlayerPockerPos[i].y);
+		if(i>4)
+		otherPlayerPocker[i].setRotation(90);
 	}
 
 	if (!font.loadFromFile("courbd.ttf"))
@@ -138,7 +166,10 @@ void GameEngine::start() {
 		for (int i = 0; i < 5; i++) {
 			window.draw(playerPocker[i]);
 		}
-		
+		for (int i = 0; i < 15; i++) {
+			window.draw(otherPlayerPocker[i]);
+		}
+		window.draw(centerCard);
 
 		receiveText(&socket, &aMensajes);
 

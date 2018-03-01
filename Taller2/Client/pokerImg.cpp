@@ -52,6 +52,7 @@ void pokerImg::setString() {
 	str_pocker.push_back(imgAdress + "8-4.jpg");
 	str_pocker.push_back(imgAdress + "9-4.jpg");
 	str_pocker.push_back(imgAdress + "10-4.jpg");
+	str_pocker.push_back(imgAdress + "back.jpg");
 }
 
 void pokerImg::setTexture() {

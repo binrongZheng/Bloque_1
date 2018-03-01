@@ -20,8 +20,12 @@ public:
 
 private:
 	pokerImg pocker;
-	vector <position> pockerPos;
-	
+	vector <position> playerPockerPos;
 	vector <Sprite> playerPocker;
+
+	vector <position> otherPlayerPockerPos;
+	vector <Sprite> otherPlayerPocker;
+
+	Sprite centerCard;
 };
 
