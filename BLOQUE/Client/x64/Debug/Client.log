@@ -1,0 +1,10 @@
+﻿  pokerImg.cpp
+  GameEngine.cpp
+c:\users\bzheng\documents\github\bloque_1\bloque\client\gameengine.cpp(51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\bzheng\documents\github\bloque_1\bloque\client\gameengine.cpp(74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\bzheng\documents\github\bloque_1\bloque\client\gameengine.cpp(179): warning C4244: 'argument': conversion from '::size_t' to 'float', possible loss of data
+c:\users\bzheng\documents\github\bloque_1\bloque\client\gameengine.cpp(29): warning C4101: 'connectionType': unreferenced local variable
+  Client_Main.cpp
+  Generating Code...
+  Client.vcxproj -> C:\Users\bzheng\Documents\GitHub\Bloque_1\BLOQUE\x64\Debug\Client.exe
+  Client.vcxproj -> C:\Users\bzheng\Documents\GitHub\Bloque_1\BLOQUE\x64\Debug\Client.pdb (Partial PDB)

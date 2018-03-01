@@ -1,6 +1,0 @@
-﻿  GameEngine.cpp
-c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\gameengine.cpp(51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\gameengine.cpp(74): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\gameengine.cpp(179): warning C4244: 'argumento': conversión de '::size_t' a 'float'; posible pérdida de datos
-c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\gameengine.cpp(29): warning C4101: 'connectionType': variable local sin referencia
-  Client.vcxproj -> C:\Users\飘雪柳絮\Desktop\Bloque_1\Taller2\x64\Debug\Client.exe
