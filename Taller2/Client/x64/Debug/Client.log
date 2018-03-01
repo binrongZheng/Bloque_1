@@ -1,0 +1,4 @@
+﻿  Client_Main.cpp
+c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\client_main.cpp(140): warning C4244: 'argumento': conversión de '::size_t' a 'float'; posible pérdida de datos
+c:\users\飘雪柳絮\desktop\bloque_1\taller2\client\client_main.cpp(27): warning C4101: 'connectionType': variable local sin referencia
+  Client.vcxproj -> C:\Users\飘雪柳絮\Desktop\Bloque_1\Taller2\x64\Debug\Client.exe
