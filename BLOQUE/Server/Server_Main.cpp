@@ -41,7 +41,7 @@ void ServerManager()
 	selector.add(listener);
 
 	//Define the number of players you want
-	int maxPlayers = 2;
+	int maxPlayers = 1;
 
 	// Endless loop that waits for new connections
 	while (running)

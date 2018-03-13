@@ -34,7 +34,8 @@ void GameEngine::start() {
 
 	sf::Vector2i screenDimensions(800, 600);
 
-	sf::RenderWindow window;
+	sf::RenderWindow gameWindow;
+	sf::RenderWindow chatWindow;
 
 
 	sf::Font font;
@@ -121,23 +122,47 @@ void GameEngine::start() {
 			name = buffer;
 
 		}
-		window.create(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Chat");
+		gameWindow.create(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Game");
+		chatWindow.create(sf::VideoMode(screenDimensions.x, screenDimensions.y), "Chat");
 	}
-	while (window.isOpen())
-	{
-		if (aMensajes.size() >= 25) aMensajes.clear();
-
+	while (gameWindow.isOpen())
+	{		
 		sf::Event evento;
-		while (window.pollEvent(evento))
+		
+		//GAMEPLAY
+		while (gameWindow.pollEvent(evento))
 		{
 			switch (evento.type)
 			{
 			case sf::Event::Closed:
-				window.close();
+				gameWindow.close();
+				chatWindow.close();
+				break;				
+			}
+		}		
+		for (int i = 0; i < 5; i++) {
+			gameWindow.draw(playerPocker[i]);
+		}
+		for (int i = 0; i < 15; i++) {
+			gameWindow.draw(otherPlayerPocker[i]);
+		}
+		gameWindow.draw(centerCard);
+		gameWindow.display();
+		gameWindow.clear();
+
+		//CHAT
+		if (aMensajes.size() >= 25) aMensajes.clear();
+		
+		while (chatWindow.pollEvent(evento))
+		{
+			switch (evento.type)
+			{
+			case sf::Event::Closed:
+				chatWindow.close();
 				break;
 			case sf::Event::KeyPressed:
 				if (evento.key.code == sf::Keyboard::Escape)
-					window.close();
+					chatWindow.close();
 				else if (evento.key.code == sf::Keyboard::Return)
 				{
 
@@ -162,15 +187,7 @@ void GameEngine::start() {
 				break;
 			}
 		}
-		window.draw(separator);
-		for (int i = 0; i < 5; i++) {
-			window.draw(playerPocker[i]);
-		}
-		for (int i = 0; i < 15; i++) {
-			window.draw(otherPlayerPocker[i]);
-		}
-		window.draw(centerCard);
-
+		chatWindow.draw(separator);
 		receiveText(&socket, &aMensajes);
 
 		for (size_t i = 0; i < aMensajes.size(); i++)
@@ -178,24 +195,18 @@ void GameEngine::start() {
 			std::string chatting = aMensajes[i];
 			chattingText.setPosition(sf::Vector2f(0, 20 * i));
 			chattingText.setString(chatting);
-			window.draw(chattingText);
+			chatWindow.draw(chattingText);
 		}
 		std::string mensaje_ = mensaje + "_";
 		text.setString(mensaje_);
-		window.draw(text);
+		chatWindow.draw(text);
 
-
-
-		window.display();
-		window.clear();
+		chatWindow.display();
+		chatWindow.clear();
 	}
-
-
+	
 
 	socket.disconnect();
-
-
-
 }
 
 sf::Socket::Status VSend(sf::TcpSocket* sock, string msg) {
